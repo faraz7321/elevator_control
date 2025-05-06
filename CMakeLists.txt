@@ -23,6 +23,16 @@ set(CPR_BUILD_TESTS OFF)
 set(CPR_BUILD_SSL ON) # optional, for HTTPS
 FetchContent_MakeAvailable(cpr)
 
+# Fetch ixwebsocket (WebSocket library)
+FetchContent_Declare(
+  ixwebsocket
+  GIT_REPOSITORY https://github.com/machinezone/IXWebSocket.git
+  GIT_TAG master
+)
+set(IXWEBSOCKET_BUILD_EXAMPLES OFF)
+set(IXWEBSOCKET_BUILD_TESTS OFF)
+FetchContent_MakeAvailable(ixwebsocket)
+
 # Include directories
 include_directories(include)
 
@@ -33,4 +43,4 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 add_executable(elevator_control main.cpp ${SOURCES})
 
 # Link dependencies
-target_link_libraries(elevator_control PRIVATE cpr::cpr nlohmann_json::nlohmann_json)
+target_link_libraries(elevator_control PRIVATE cpr::cpr nlohmann_json::nlohmann_json ixwebsocket::ixwebsocket)
