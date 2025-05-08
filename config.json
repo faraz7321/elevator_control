@@ -1,6 +1,6 @@
 {
-    "auth_token": "autoxing_token",
-    "app_secret": "robot_secret",
+    "app_code": "app_code",
+    "app_secret": "app_secret",
     "business_id": "business_id",
     "robot_ip": "robot_ip",
     "elevator_ip": "elevator_ip"
