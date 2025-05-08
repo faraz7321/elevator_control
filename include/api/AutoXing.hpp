@@ -1,12 +1,20 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <cpr/cpr.h>
+#include <iostream>
 #include <nlohmann/json.hpp>
 
-class RobotRestAPI;
+class AutoXingAPI {
+public:
+    AutoXingAPI(const std::string& authToken);
 
-struct Task {
-    std::string id;
+    std::vector<nlohmann::json> loadTasks(const std::string& businessId);
+    std::vector<nlohmann::json> loadPOIs(const std::string& businessId);
+
+private:
+    std::string authToken;
+    std::string baseUrl = "https://apiglobal.autoxing.com/";
+
+    cpr::Response makePostRequest(const std::string& endpoint, const std::string& body);
 };
-
-std::vector<nlohmann::json> loadTasks(const std::string& businessId);
