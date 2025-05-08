@@ -7,16 +7,13 @@
 #include <chrono>
 #include <vector>
 #include <nlohmann/json.hpp>
+#include "utils/config_loader.hpp"
 
 void handleTask(const nlohmann::json &taskPt, std::shared_ptr<RobotRestAPI> api, std::shared_ptr<Elevator> elevator);
 
 int main() {
 
-    std::string authToken;
-    
-    std::cout << "Enter AutoXing Auth Token: ";
-    std::cin >> authToken;
-    AutoXingAPI AXapi(authToken);
+    AutoXingAPI AXapi;
 
     Args args = parseArgs();
     

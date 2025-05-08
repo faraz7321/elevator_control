@@ -1,5 +1,6 @@
 #pragma once
 #include "RobotRestAPI.hpp"
+#include "RobotWebSocket.hpp"
 #include "utils/messages.hpp"
 #include <optional>
 #include <memory>
@@ -28,6 +29,7 @@ public:
     std::optional<GlobalPath> globalPath;
 
     std::shared_ptr<RobotRestAPI> restApi;
+    std::shared_ptr<RobotWebSocket> webSocket;
 
 private:
     std::string robotHost;

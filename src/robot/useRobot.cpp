@@ -7,12 +7,12 @@ Robot::Robot(std::string host, std::string secret, std::string businessId)
       businessId(std::move(businessId)),
       socketState(ConnectionState::NotConnected) {
     restApi = std::make_shared<RobotRestAPI>(robotHost, robotSecret);
+    webSocket = std::make_shared<RobotWebSocket>(robotHost, robotSecret);
 }
 
 void Robot::connect() {
     socketState = ConnectionState::Connecting;
 
-    // In full implementation: attach RobotWebSocket, handle messages
     socketState = ConnectionState::Connected;
     std::cout << "[Robot] Connected to WebSocket (stub)\n";
 }

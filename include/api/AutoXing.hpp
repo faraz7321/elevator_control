@@ -7,13 +7,13 @@
 
 class AutoXingAPI {
 public:
-    AutoXingAPI(const std::string& authToken);
+    AutoXingAPI();
 
     std::vector<nlohmann::json> loadTasks(const std::string& businessId);
     std::vector<nlohmann::json> loadPOIs(const std::string& businessId);
 
 private:
-    std::string authToken;
+    std::string app_code = "e63f72531dd14ea2aa9959730861cb10";
     std::string baseUrl = "https://apiglobal.autoxing.com/";
 
     cpr::Response makePostRequest(const std::string& endpoint, const std::string& body);

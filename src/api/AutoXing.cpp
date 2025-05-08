@@ -1,13 +1,13 @@
-#include "AutoXing.hpp"
+#include "api/AutoXing.hpp"
 
 // Constructor to initialize the auth token
-AutoXingAPI::AutoXingAPI(const std::string& authToken) : authToken(authToken) {}
+AutoXingAPI::AutoXingAPI() : app_code(app_code) {}
 
 // Helper function to make POST requests
 cpr::Response AutoXingAPI::makePostRequest(const std::string& endpoint, const std::string& body) {
     cpr::Response response = cpr::Post(
         cpr::Url{baseUrl + endpoint},
-        cpr::Header{{"Authorization", "APPCODE " + authToken}, {"Content-Type", "application/json"}},
+        cpr::Header{{"Authorization", "APPCODE " + app_code}, {"Content-Type", "application/json"}},
         cpr::Body{body}
     );
     return response;
