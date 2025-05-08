@@ -2,5 +2,6 @@
     "files.associations": {
         "optional": "cpp",
         "functional": "cpp"
-    }
+    },
+    "makefile.makefilePath": "${workspaceFolder}/"
 }
